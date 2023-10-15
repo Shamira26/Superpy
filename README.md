@@ -1,2 +1,2 @@
 # Superpy
-Superpy is a Python command-line tool (CLI) 
+Superpy is a command-line tool (CLI) 
