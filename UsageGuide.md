@@ -84,9 +84,9 @@ Onder de report valt proft, inventory en revenue
 ## Inventory
 The --inventory option provides a detailed list of all products in your inventory. To tailor the results, you can specify whether you want to see 'buy' or 'sell' transactions. However, it's essential to include the start and end dates to filter the inventory data accurately.
 
--- inventory-type: Specify the choice between buy or sell
--- start-date: Specify the start date
--- end-date: Specify the end date
+- -- inventory-type: Specify the choice between buy or sell
+- -- start-date: Specify the start date
+- -- end-date: Specify the end date
 
 ### Usage
 
@@ -114,7 +114,7 @@ The revenue report provides an overview of the total income generated from produ
 
 ### Usage
 ```python
-python superpy.py report revenue --start-date <start_date> --end-date <end_date>
+python superpy.py report revenue --start-date <your start date in YYYY-MM-DD format> --end-date <your end date in YYYY-MM-DD format>
 ```
 
 ### Example
@@ -135,12 +135,12 @@ The profit report provides an overview of the total profit earned from product s
 ## Usage
 
 ```python
-python superpy.py report profit --plot-profit --start-date <start_date> --end-date <end_date> 
+python superpy.py report profit --plot-profit --start-date <your start date in YYYY-MM-DD format> --end-date <your start date in YYYY-MM-DD format> 
 ```
 or 
 
 ```python
-python superpy.py report profit --start-date <start_date> --end-date <end_date> 
+python superpy.py report profit --start-date <your start date in YYYY-MM-DD format> --end-date <your end date in YYYY-MM-DD format> 
 ```
 
 ## Example 
