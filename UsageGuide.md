@@ -52,10 +52,10 @@ Notes:
 ## Sell
 The sell command allows you to record the sale of products from your inventory. It takes the same arguments as the buy command.
 
---product_name: Specify the name of the product you're selling.
---quantity: Specify the quantity of the product you're selling.
---price: Specify the price per unit of the product.
---expiration_date: Specify the expiration date of the product.
+- --product_name: Specify the name of the product you're selling.
+- --quantity: Specify the quantity of the product you're selling.
+- --price: Specify the price per unit of the product.
+- --expiration_date: Specify the expiration date of the product.
 
 #### Usage
 
@@ -109,8 +109,8 @@ Notes:
 ## Revenue
 The revenue report provides an overview of the total income generated from product sales within a specified time frame.
 
--- start-date: Specify the start date
--- end-date: Specify the end date
+- -- start-date: Specify the start date
+- -- end-date: Specify the end date
 
 ### Usage
 ```python
@@ -127,9 +127,9 @@ python superpy.py report revenue --start-date 2023-01-01 --end-date 2023-03-31
 ## Profit
 The profit report provides an overview of the total profit earned from product sales within a specified time frame.
 
--- plot-profit: Use this option to visualize the profit over time.
--- start-date: Specify the start date
--- end-date: Specify the end date
+- -- plot-profit: Use this option to visualize the profit over time.
+- -- start-date: Specify the start date
+- -- end-date: Specify the end date
 
 
 ## Usage
