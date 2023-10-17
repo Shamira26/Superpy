@@ -78,8 +78,11 @@ Notes:
 
 
 ## Report
-HIER NOG ECTRA tekst
-Onder de report valt proft, inventory en revenue
+The report command offers insights into your inventory, revenue, and profit. 
+
+- Inventory: See a detailed list of products in stock.
+- Revenue: Get the total income from product sales in a specified time frame.
+- Profit: Assess the overall profit from your product transactions.
 
 ## Inventory
 The --inventory option provides a detailed list of all products in your inventory. To tailor the results, you can specify whether you want to see 'buy' or 'sell' transactions. However, it's essential to include the start and end dates to filter the inventory data accurately.
