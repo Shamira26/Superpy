@@ -131,6 +131,8 @@ The profit report provides an overview of the total profit earned from product s
 - -- start-date: Specify the start date
 - -- end-date: Specify the end date
 
+- -- date: Specify the date
+
 
 ## Usage
 
@@ -140,7 +142,7 @@ python superpy.py report profit --plot-profit --start-date <your start date in Y
 or 
 
 ```python
-python superpy.py report profit --start-date <your start date in YYYY-MM-DD format> --end-date <your end date in YYYY-MM-DD format> 
+python superpy.py report profit --date <your start date in YYYY-MM-DD format> 
 ```
 
 ## Example 
@@ -152,7 +154,7 @@ python superpy.py report profit --plot-profit --start-date 2023-10-09 --end-date
 In the following example, you will receive the result without a graphical representation.
 
 ```python
-python superpy.py report profit --start-date 2023-10-09 --end-date 2023-10-15
+python superpy.py report profit --date 2023-10-09
 ```
 
 Notes:
