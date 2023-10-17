@@ -27,10 +27,10 @@ Notes:
 ## Buy
 The buy command allows you to record the purchase of products in your inventory. 
 
---product_name: Specify the name of the product you're buying.
---quantity: Specify the quantity of the product you're buying.
---price: Specify the price per unit of the product.
---expiration_date: Specify the expiration date of the product.
+- --product_name: Specify the name of the product you're buying.
+- --quantity: Specify the quantity of the product you're buying.
+- --price: Specify the price per unit of the product.
+- --expiration_date: Specify the expiration date of the product.
 
 #### Usage
 ```python
