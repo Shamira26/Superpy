@@ -145,7 +145,7 @@ python superpy.py report profit --plot-profit --start-date <your start date in Y
 or 
 
 ```python
-python superpy.py report profit --date <your start date in YYYY-MM-DD format> 
+python superpy.py report profit --date <your date in YYYY-MM-DD format> 
 ```
 
 ## Example 
