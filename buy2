@@ -1,0 +1,113 @@
+from datetime import datetime
+from HandleCsv import HandleCSV 
+import csv
+import os
+
+class buy:
+
+    product_history = []
+
+    def __init__(self, handle_date_instance, csv_handler):
+        self.handle_date = handle_date_instance
+        self.csv_handler = csv_handler
+
+    def write(self, product_name, quantity, price, expiration_date):
+        data = self.csv_handler.read()
+        current_date = self.handle_date.read()
+
+        if datetime.strptime(expiration_date, "%Y-%m-%d") < current_date:
+            print("Error: Expiration date is in the past. Product cannot be bought.")
+            return    
+
+        # Check if there is an existing record with the same details 
+        for row in data:
+            if (
+                row["Type"] == "Buy"
+                and row["Product_name"] == product_name
+                and float(row["Price"]) == price
+                and row["Expiration_date"] == expiration_date
+            ):
+                # Update quantity if the details match
+                row["Quantity"] = str(int(row["Quantity"]) + quantity)
+                self.csv_handler.write_all(data)
+                print(f"Quantity updated for existing product '{product_name}'.")
+                return
+
+        # If no existing record is found, create a new one
+        data_row = {
+            "Type": "Buy",
+            "Product_name": product_name,
+            "Quantity": quantity,
+            "Price": price,
+            "Date": self.handle_date.read().strftime("%Y-%m-%d"),
+            "Expiration_date": expiration_date,
+            "Status": "Active"  # Nieuwe record is standaard actief
+        }
+        self.csv_handler.write(data_row)
+        print(f"OK! Product is added successfully.")
+
+    def update_status(self):
+        data = self.csv_handler.read()
+        current_date = self.handle_date.read()
+
+        for row in data:
+            if row["Type"] == "Buy" and row.get("Status") != "Not active":
+                expiration_date = datetime.strptime(row["Expiration_date"], "%Y-%m-%d")
+                if expiration_date < current_date:
+                    row["Status"] = "Not active"
+
+        self.csv_handler.write_all(data)
+
+    def update_product_status(self, product_name):
+        data = self.csv_handler.read()
+
+        for row in data:
+            if row["Type"] == "Buy" and row["Product_name"] == product_name:
+                if int(row["Quantity"]) == 0:
+                    row["Status"] = "Sold"
+
+        self.csv_handler.write_all(data)
+
+    def complete_sell(self, product_name, quantity, price, date):
+        data = self.csv_handler.read()
+
+        for row in data:
+            if row["Type"] == "Buy" and row["Product_name"] == product_name and row["Status"] != "Not active":
+                if int(row["Quantity"]) - quantity <= 0:
+                    print(f"Changing status for product: {row['Product_name']} to Sold out")
+                    row["Status"] = "Sold"
+                row["Quantity"] = str(int(row["Quantity"]) - quantity)
+
+        self.csv_handler.write_all(data)
+
+        self.mark_as_sold(product_name)
+  
+    def add_to_product_history(self, product_name, quantity, price, date):
+        # Zoek eerst naar het item in product_history
+        found = False
+        for item in self.product_history:
+            if item["Product_name"] == product_name:
+                item["Quantity"] += quantity
+                found = True
+                break
+
+        # Als het item niet in product_history is gevonden, voeg een nieuw item toe
+        if not found:
+            item = {
+                "Product_name": product_name,
+                "Quantity": quantity,
+                "Price": price,
+                "Date": date,
+                "Status": "Active"  # Standaard is het item actief
+            }
+            self.product_history.append(item)
+
+        # Pas de status van items aan naar "Sold" wanneer de hoeveelheid op 0 staat
+        for item in self.product_history:
+            if item["Quantity"] == 0:
+                item["Status"] = "Sold"
+
+    def mark_as_sold(self, product_name):
+        for item in self.product_history:
+            if item["Product_name"] == product_name and item["Quantity"] == 0:
+                item["Status"] = "Sold"
