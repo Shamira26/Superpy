@@ -121,7 +121,7 @@ python superpy.py report inventory --inventory-type <buy/sell> --start-date <you
 This command will display a list of all products bought between October 2, 2023, and October 31, 2023:
 
 ```python
-python superpy.py report inventory --inventory-type buy --start-date 2023-10-02 --end-date 2023-12-31
+python superpy.py report inventory --inventory-type buy --start-date 2023-10-02 --end-date 2023-10-31
 ```
 
 Notes:
@@ -161,8 +161,9 @@ The profit report provides an overview of the total profit earned from product s
 ## Usage
 
 ```python
-python superpy.py report profit --plot-profit --start-date <your start date in YYYY-MM-DD format> --end-date <your start date in YYYY-MM-DD format> 
+python superpy.py report profit --plot-profit --start-date <your start date in YYYY-MM-DD format> --end-date <your end date in YYYY-MM-DD format> 
 ```
+or 
 
 ```python
 python superpy.py report profit --date <your date in YYYY-MM-DD format> 
@@ -206,4 +207,4 @@ The report subcommand has additional commands like inventory, revenue, and profi
   python superpy.py report inventory --help
   python superpy.py report revenue --help  
   python superpy.py report profit --help  
-    ```
+  ```
