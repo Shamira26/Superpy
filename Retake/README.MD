@@ -8,4 +8,4 @@ Superpy is a Python command-line tool (CLI) designed to help businesses manage t
 - Generate detailed reports on revenue, profit, and current inventory.
 
 ## How to Use:
-For a more in-depth exploration of creating and interacting with the CLI, I refer to the [UsaGuide](UsageGuide.md).
+For a more in-depth exploration of creating and interacting with the CLI, I refer to the [UsageGuide](UsageGuide.md).
